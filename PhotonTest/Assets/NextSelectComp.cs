@@ -14,7 +14,7 @@ public class NextSelectComp : MonoBehaviour {
 
     public void OnClick()
     {
-        GameAdmin.instance.GetComponent<RandomMatchmaker>().StartOnLine(playername.text);
+        //GameAdmin.instance.GetComponent<RandomMatchmaker>().StartOnLine(playername.text);
         Application.LoadLevelAsync("SelectCamp");
     }
 }

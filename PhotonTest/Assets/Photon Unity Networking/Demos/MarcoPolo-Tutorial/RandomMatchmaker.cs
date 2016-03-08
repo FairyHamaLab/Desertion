@@ -4,20 +4,10 @@ public class RandomMatchmaker : Photon.PunBehaviour
 {
     private PhotonView myPhotonView;
 
-
-    public bool StartOnLine(string player_name)
+    // Use this for initialization
+    public void Start()
     {
         PhotonNetwork.ConnectUsingSettings("0.1");
-		if (string.IsNullOrEmpty (PhotonNetwork.playerName)) {
-			PhotonNetwork.playerName = player_name;
-            return true;
-		}
-        return false;
-    }
-
-    public PhotonView GetPhotonView()
-    {
-        return this.GetComponent<PhotonView>();
     }
 
     public override void OnJoinedLobby()
@@ -39,12 +29,9 @@ public class RandomMatchmaker : Photon.PunBehaviour
 
     public override void OnJoinedRoom()
     {
-		
-       // GameObject monster = PhotonNetwork.Instantiate("monsterprefab", Vector3.zero, Quaternion.identity, 0);
-        GameObject test = PhotonNetwork.Instantiate("test", new Vector3(3,10,0), Quaternion.identity, 0);
-       // monster.GetComponent<myThirdPersonController>().isControllable = true;
-        //myPhotonView = monster.GetComponent<PhotonView>();
-        
+        GameObject monster = PhotonNetwork.Instantiate("monsterprefab", Vector3.zero, Quaternion.identity, 0);
+        monster.GetComponent<myThirdPersonController>().isControllable = true;
+        myPhotonView = monster.GetComponent<PhotonView>();
     }
 
     public void OnGUI()
