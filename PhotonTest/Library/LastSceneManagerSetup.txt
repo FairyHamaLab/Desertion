@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/ItemSample.unity
+- path: Assets/Game/DesertionScene.unity
   isLoaded: 1
   isActive: 1
